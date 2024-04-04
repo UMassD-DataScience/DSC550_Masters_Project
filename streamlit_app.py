@@ -4,7 +4,7 @@ import altair as alt
 from statsmodels.tsa.arima.model import ARIMA
 
 # Load your historical data or define your dataset
-historical_data = pd.read_excel("Boston_Climate.xlsx")
+historical_data = pd.read_excel("C:/Users/sujik/OneDrive/Documents/MS - Data Science/Semester 4 (Spring_24)/DSC 550 - Masters Project/Boston_Climate.xlsx")
 
 # Convert data types to numeric if needed
 historical_data = historical_data.apply(pd.to_numeric, errors='coerce')
@@ -50,11 +50,14 @@ chart = alt.Chart(forecast_df).mark_line().encode(
     tooltip=['Date:T', 'Forecasted Temperature:Q']
 ).properties(
     width=600,
-    height=400,
-    title='Forecasted Average Temperature Trends'
+    height=400
 ).configure_axis(
     labelFontSize=12,
-    titleFontSize=14
+    titleFontSize=14,
+    grid=False,
+    domain = True,
+    domainWidth=0.8,
+    domainColor='grey' 
 )
 
 # Use Streamlit columns to layout the components
@@ -67,4 +70,5 @@ with col1:
 
 # Line chart for forecasted values with date format on x-axis in the second column
 with col2:
+    st.write('**Forecasted Average Temperature Trends**', unsafe_allow_html=True)
     st.altair_chart(chart, use_container_width=True)
