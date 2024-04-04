@@ -4,7 +4,7 @@ import altair as alt
 from statsmodels.tsa.arima.model import ARIMA
 
 # Load your historical data or define your dataset
-historical_data = pd.read_excel("C:/Users/sujik/OneDrive/Documents/MS - Data Science/Semester 4 (Spring_24)/DSC 550 - Masters Project/Boston_Climate.xlsx")
+historical_data = pd.read_excel("Boston_Climate.xlsx")
 
 # Convert data types to numeric if needed
 historical_data = historical_data.apply(pd.to_numeric, errors='coerce')
