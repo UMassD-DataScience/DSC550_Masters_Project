@@ -23,7 +23,7 @@ else:
     st.stop()  # Stop script execution if input is invalid
 
 # Fit the final model with the best parameters
-final_model = ARIMA(historical_data['Temp_Avg'], order=(4, 1, 3))  # Assuming 'Temperature' is the column name
+final_model = ARIMA(historical_data['Temp_Avg'], order=(4, 1, 3))
 final_fit_model = final_model.fit()
 
 # Use the fitted model to forecast future periods
